@@ -17,6 +17,10 @@
     <LangVersion>8</LangVersion>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Include="wwwroot\Leaflet.TileLayer.MBTiles.js" />
+  </ItemGroup>
+
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Components" Version="3.0.0-rc1.19457.4" />
