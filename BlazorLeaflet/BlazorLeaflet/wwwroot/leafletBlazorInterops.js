@@ -30,6 +30,7 @@ window.leafletBlazor = {
             // ---
             minZoom: tileLayer.minimumZoom,
             maxZoom: tileLayer.maximumZoom,
+            maxNativeZoom: 19,
             subdomains: tileLayer.subdomains,
             errorTileUrl: tileLayer.errorTileUrl,
             zoomOffset: tileLayer.zoomOffset,
