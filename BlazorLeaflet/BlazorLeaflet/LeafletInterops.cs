@@ -1,11 +1,14 @@
+using BlazorLeaflet.DrawHandlers;
 using BlazorLeaflet.Models;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.JSInterop;
+
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Threading.Tasks;
+using System.Xml;
 using Rectangle = BlazorLeaflet.Models.Rectangle;
 
 namespace BlazorLeaflet
@@ -91,5 +94,23 @@ namespace BlazorLeaflet
 
         public static ValueTask ZoomOut(IJSRuntime jsRuntime, string mapId, MouseEventArgs e) =>
             jsRuntime.InvokeVoidAsync($"{_BaseObjectContainer}.zoomOut", mapId, e);
+
+        public static async ValueTask CompleteButton(IJSRuntime jsRuntime, DotNetObjectReference<PolygonDrawHandler> obj, string mapId)
+        {
+            await jsRuntime.InvokeVoidAsync($"{_BaseObjectContainer}.addCompleteButton", obj, mapId);
+        }
+        public static async ValueTask CompleteButton(IJSRuntime jsRuntime, DotNetObjectReference<PolylineDrawHandler> obj, string mapId)
+        {
+            await jsRuntime.InvokeVoidAsync($"{_BaseObjectContainer}.addCompleteButton", obj, mapId);
+        }
+        public static async ValueTask CompleteButton(IJSRuntime jsRuntime, DotNetObjectReference<RectangleDrawHandler> obj, string mapId)
+        {
+            await jsRuntime.InvokeVoidAsync($"{_BaseObjectContainer}.addCompleteButton", obj, mapId);
+        }
+
+        public static async ValueTask AddKml(IJSRuntime jsRuntime, string mapId, XmlDocument kml)
+        {
+            await jsRuntime.InvokeVoidAsync($"{_BaseObjectContainer}.addKml", mapId, kml);
+        }
     }
 }

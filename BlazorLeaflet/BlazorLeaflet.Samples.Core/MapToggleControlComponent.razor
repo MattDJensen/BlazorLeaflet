@@ -1,0 +1,37 @@
+﻿@using BlazorLeaflet.DrawHandlers
+
+
+<button onclick="@(() => ToggleClicked())">@ButtonText</button>
+
+@code {
+    [Parameter] public string ButtonText { get; set; }
+    [Parameter] public IDrawHandler DrawHandler { get; set; }
+    [Parameter] public EventCallback<bool> OnToggleCallback { get; set; }
+    [Parameter] public EventCallback<bool> OnDrawingFinishedCallback { get; set; }
+    
+
+    private string style = "background-color:red";
+
+    protected override void OnInitialized()
+    {
+        DrawHandler.DrawFinished += OnDrawFinished;
+        base.OnInitialized();
+    }
+
+    async Task ToggleClicked()
+    {
+        await OnToggleCallback.InvokeAsync(true);
+        StateHasChanged();
+    }
+
+    void OnDrawFinished(object sender, EventArgs e)
+    {
+        OnDrawingFinishedCallback.InvokeAsync(true);
+        StateHasChanged();
+    }
+
+    public void Dispose()
+    {
+        DrawHandler.DrawFinished -= OnDrawFinished;
+    }
+}

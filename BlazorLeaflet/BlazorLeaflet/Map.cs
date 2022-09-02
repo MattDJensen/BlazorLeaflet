@@ -12,6 +12,9 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Components.Web;
 
+using System.Xml;
+using BlazorLeaflet.DrawHandlers;
+
 namespace BlazorLeaflet
 {
     public class Map
@@ -194,6 +197,17 @@ namespace BlazorLeaflet
         /// If <c>shift</c> is held down, decreases it by three.
         /// </summary>
         public async Task ZoomOut(MouseEventArgs e) => await LeafletInterops.ZoomOut(_jsRuntime, Id, e);
+
+        /// <summary>
+        /// Creates a button on the map to signal completion of drawing current element.
+        /// </summary>
+        public async Task AddCompleteButton(DotNetObjectReference<PolygonDrawHandler> obj) => await LeafletInterops.CompleteButton(_jsRuntime, obj, Id);
+        public async Task AddCompleteButton(DotNetObjectReference<PolylineDrawHandler> obj) => await LeafletInterops.CompleteButton(_jsRuntime, obj, Id);
+        public async Task AddCompleteButton(DotNetObjectReference<RectangleDrawHandler> obj) => await LeafletInterops.CompleteButton(_jsRuntime, obj, Id);
+        /// <summary>
+        /// Upload a KML file to the map.
+        /// </summary>
+        public async Task UploadKML(XmlDocument file) => await LeafletInterops.AddKml(_jsRuntime, Id, file);
 
         #region events
 

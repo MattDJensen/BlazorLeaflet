@@ -222,6 +222,18 @@ window.leafletBlazor = {
         if (map.getZoom() > map.getMinZoom()) {
             map.zoomOut(map.options.zoomDelta * (e.shiftKey ? 3 : 1));
         }
+    },
+
+    addCompleteButton: function (instance, mapId) {
+        const map = maps[mapId];
+
+        L.easyButton('<img alt="do this" src="large_image_tes.png"/>', function (btn, map) {
+            instance.invokeMethodAsync("DrawingComplete");
+            this.remove();
+        }).addTo(map);
+    },
+    addKml: function (mapId, file) {
+        // todo
     }
 };
 

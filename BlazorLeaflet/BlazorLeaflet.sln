@@ -1,11 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29311.281
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.32804.182
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorLeaflet", "BlazorLeaflet\BlazorLeaflet.csproj", "{492F5055-CDFC-44C7-9997-7BEA9FF41C08}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorLeaflet.Samples", "BlazorLeaflet.Samples\BlazorLeaflet.Samples.csproj", "{ACEF0CBD-C2DE-4BE8-8DDA-C6D8C0F5736D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorLeaflet.Samples.BlazorMaui", "BlazorLeaflet.Samples.BlazorMaui\BlazorLeaflet.Samples.BlazorMaui.csproj", "{8362BDDC-AF74-4939-A82C-4C0461100106}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorLeaflet.Samples.BlazorServer", "BlazorLeaflet.Samples.BlazorServer\BlazorLeaflet.Samples.BlazorServer.csproj", "{9ED71A71-BA8D-4A5B-8DC1-19A0BC347296}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorLeaflet.Samples.Core", "BlazorLeaflet.Samples.Core\BlazorLeaflet.Samples.Core.csproj", "{7C97B192-7EEB-450E-9D29-FC7A1A507A15}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +21,20 @@ Global
 		{492F5055-CDFC-44C7-9997-7BEA9FF41C08}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{492F5055-CDFC-44C7-9997-7BEA9FF41C08}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{492F5055-CDFC-44C7-9997-7BEA9FF41C08}.Release|Any CPU.Build.0 = Release|Any CPU
-		{ACEF0CBD-C2DE-4BE8-8DDA-C6D8C0F5736D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{ACEF0CBD-C2DE-4BE8-8DDA-C6D8C0F5736D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{ACEF0CBD-C2DE-4BE8-8DDA-C6D8C0F5736D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{ACEF0CBD-C2DE-4BE8-8DDA-C6D8C0F5736D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8362BDDC-AF74-4939-A82C-4C0461100106}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8362BDDC-AF74-4939-A82C-4C0461100106}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8362BDDC-AF74-4939-A82C-4C0461100106}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{8362BDDC-AF74-4939-A82C-4C0461100106}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8362BDDC-AF74-4939-A82C-4C0461100106}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8362BDDC-AF74-4939-A82C-4C0461100106}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{9ED71A71-BA8D-4A5B-8DC1-19A0BC347296}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9ED71A71-BA8D-4A5B-8DC1-19A0BC347296}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9ED71A71-BA8D-4A5B-8DC1-19A0BC347296}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9ED71A71-BA8D-4A5B-8DC1-19A0BC347296}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C97B192-7EEB-450E-9D29-FC7A1A507A15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C97B192-7EEB-450E-9D29-FC7A1A507A15}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C97B192-7EEB-450E-9D29-FC7A1A507A15}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C97B192-7EEB-450E-9D29-FC7A1A507A15}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

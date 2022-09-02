@@ -1,0 +1,63 @@
+﻿@using BlazorLeaflet
+@using BlazorLeaflet.DrawHandlers
+@using System.Collections.ObjectModel
+@using BlazorLeaflet.Models
+@using Microsoft.JSInterop
+@inject IJSRuntime JsRuntime
+
+
+<h3>MapWithHandlers</h3>
+<div>
+    <div style="height: 40vh; width: 100%;">
+        <LeafletMap Map="_map" />
+    </div>
+
+    <MapToggleControlComponent DrawHandler="@pointHandler" ButtonText="Add new point" OnToggleCallback="pointHandler.OnDrawToggle" OnDrawingFinishedCallback="OnDrawFinished" />
+    <MapToggleControlComponent DrawHandler="@polygonHandler" ButtonText="Add new polygon" OnToggleCallback="polygonHandler.OnDrawToggle" OnDrawingFinishedCallback="OnDrawFinished" />
+    <MapToggleControlComponent DrawHandler="@polylineHandler" ButtonText="Add new polyline" OnToggleCallback="polylineHandler.OnDrawToggle" OnDrawingFinishedCallback="OnDrawFinished" />
+    <MapToggleControlComponent DrawHandler="@rectangleHandler" ButtonText="Add new rectangle" OnToggleCallback="rectangleHandler.OnDrawToggle" OnDrawingFinishedCallback="OnDrawFinished" />
+
+</div>
+@code {
+    private Map _map;
+
+    private PointDrawHandler pointHandler;
+    private PolygonDrawHandler polygonHandler;
+    private PolylineDrawHandler polylineHandler;
+    private RectangleDrawHandler rectangleHandler;
+
+    private ObservableCollection<Marker> points = new ObservableCollection<Marker>();
+    private ObservableCollection<Polygon> polygons = new ObservableCollection<Polygon>();
+    private ObservableCollection<Polyline> polylines = new ObservableCollection<Polyline>();
+    private ObservableCollection<BlazorLeaflet.Models.Rectangle> rectangles = new ObservableCollection<BlazorLeaflet.Models.Rectangle>();
+
+    private void OnDrawFinished()
+    {
+        StateHasChanged();
+    }
+
+    protected override void OnInitialized()
+    {
+
+        _map = new Map(JsRuntime)
+        {
+
+        };
+
+        _map.OnInitialized += () =>
+        {
+            _map.AddLayer(new TileLayer
+                {
+                    UrlTemplate = "https://a.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                    Attribution = "&copy; <a href=\"https://www.openstreetmap.org/copyright\">OpenStreetMap</a> contributors",
+                    MaximumZoom = 22,
+                    ErrorTileUrl = "True"
+                });
+        };
+        polylineHandler = new PolylineDrawHandler(_map, JsRuntime, polylines);
+        pointHandler = new PointDrawHandler(_map, JsRuntime, points);
+        polygonHandler = new PolygonDrawHandler(_map, JsRuntime, polygons);
+        rectangleHandler = new RectangleDrawHandler(_map, JsRuntime, rectangles);
+
+    }
+}

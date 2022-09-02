@@ -20,7 +20,20 @@ namespace BlazorLeaflet.Models
     }
 
     public class Polyline : Polyline<PointF[][]>
-    { }
+    {
+
+        public Polyline(int width, Color fillColor)
+        {
+
+            StrokeWidth = width;
+            FillColor = fillColor;
+        }
+
+        public Polyline()
+        {
+
+        }
+    }
 
 
 }
