@@ -20,10 +20,10 @@ In your `_Host.cshtml` (Blazor Server ) or `index.html` (Blazor WebAssembly / Bl
             integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
             crossorigin=""></script>
     <script src="https://unpkg.com/sql.js@0.3.2/js/sql.js" crossorigin=""></script>
-    <script src="_content/SmartTrackMapping/leafletBlazorInterops.js"></script>
-    <script src="_content/SmartTrackMapping/Leaflet.TileLayer.MBTiles.js"></script>
-    <script src="_content/SmartTrackMapping/leaflet.tilelayer.fallback.js"></script>
-    <script src="_content/SmartTrackMapping/L.KML.js"></script>
+    <script src="_content/BlazorLeaflet/leafletBlazorInterops.js"></script>
+    <script src="_content/BlazorLeaflet/Leaflet.TileLayer.MBTiles.js"></script>
+    <script src="_content/BlazorLeaflet/leaflet.tilelayer.fallback.js"></script>
+    <script src="_content/BlazorLeaflet/L.KML.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-easybutton@2/src/easy-button.css">
     <script src="https://cdn.jsdelivr.net/npm/leaflet-easybutton@2/src/easy-button.js"></script>
 ```
